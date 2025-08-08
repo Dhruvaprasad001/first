@@ -14,7 +14,7 @@ def create(db:Session , request: schemas.Blog):
     new_blog = model.Blog(
         title=request.title,
         body=request.body,
-        user_id=1
+        user_id=request.user_id
     )
     db.add(new_blog)
     db.commit()

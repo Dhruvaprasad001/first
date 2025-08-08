@@ -4,6 +4,7 @@ from typing import Optional , List
 class Blog(BaseModel):
     title: str 
     body: str 
+    id: int | None = None
     class Config:   
         orm_mode = True
 
