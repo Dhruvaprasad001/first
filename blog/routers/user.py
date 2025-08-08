@@ -21,7 +21,7 @@ def get_db():
 
 
 @router.post("", status_code=status.HTTP_201_CREATED , response_model=schemas.User  )
-def create_user(request: schemas.User, db: Session = Depends(get_db) , current_user: schemas.User = Depends(get_current_user)):
+def create_user(request: schemas.User, db: Session = Depends(get_db)):
     return user.create(db, request)
 
 @router.get("" , response_model=List[schemas.User], status_code=status.HTTP_200_OK )
