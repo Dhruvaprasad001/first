@@ -5,6 +5,7 @@ class Blog(BaseModel):
     title: str 
     body: str 
     id: int | None = None
+    user_id: int | None = None  # Add this line
     class Config:   
         orm_mode = True
 

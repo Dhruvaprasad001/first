@@ -25,6 +25,7 @@ def get_all(db: Session = Depends(get_db), current_user: schemas.User = Depends(
 
 @router.post("", status_code=status.HTTP_201_CREATED)
 def create(request: schemas.Blog, db: Session = Depends(get_db), current_user: schemas.User = Depends(get_current_user)):
+    request.user_id = current_user.id  # Add this line
     return blog.create(db,request)
 
 @router.get("/{id}", response_model=schemas.ShowBlog, status_code=status.HTTP_200_OK)
